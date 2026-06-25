@@ -1006,6 +1006,25 @@ textarea:focus-visible {
   color: rgba(255, 245, 235, 0.88);
 }
 
+.admin-status[data-tone="success"] {
+  color: #8fe2af;
+}
+
+.admin-status[data-tone="error"] {
+  color: #ffb0a8;
+}
+
+.admin-help {
+  margin-bottom: 1rem;
+  color: rgba(255, 245, 235, 0.78);
+}
+
+.admin-auth {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 .admin-nav {
   justify-content: flex-end;
 }

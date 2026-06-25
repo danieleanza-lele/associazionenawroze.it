@@ -81,7 +81,16 @@
     "emptyTitle": "Nuovi appuntamenti in preparazione",
     "emptyLocation": "Aggiorna questa sezione dal CMS",
     "emptyBody": "Gli eventi pubblicati nell'area admin compariranno qui automaticamente.",
-    "ctaLabel": "Partecipa"
+    "ctaLabel": "Partecipa",
+    "items": [
+      {
+        "date": "Domenica 28 giugno",
+        "title": "Incontro pubblico in lingua farsi",
+        "location": "Polocivico Esquilino, via Galilei 57, ore 19:30",
+        "description": "Incontro pubblico in lingua farsi dedicato alla restituzione e al confronto sulla manifestazione del 21 giugno a Roma.",
+        "href": "#messaggio"
+      }
+    ]
   },
   "actions": {
     "eyebrow": "Cosa puoi fare",
@@ -138,4 +147,3 @@
     "buttonHref": "/#contatti"
   }
 }
-

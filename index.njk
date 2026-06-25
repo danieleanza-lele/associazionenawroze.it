@@ -149,14 +149,14 @@ permalink: /index.html
       </div>
 
       <div class="event-grid">
-        {% if collections.publishedEvents.length %}
-          {% for event in collections.publishedEvents %}
+        {% if siteData.events.items and siteData.events.items.length %}
+          {% for event in siteData.events.items %}
             <article class="event-card">
-              <p class="event-date">{{ event.data.display_date }}</p>
-              <h3>{{ event.data.title }}</h3>
-              <p class="event-location">{{ event.data.location }}</p>
-              <p>{{ event.data.description }}</p>
-              <a class="button button-outline-dark" href="{{ event.data.href or '#messaggio' }}">{{ siteData.events.ctaLabel }}</a>
+              <p class="event-date">{{ event.date }}</p>
+              <h3>{{ event.title }}</h3>
+              <p class="event-location">{{ event.location }}</p>
+              <p>{{ event.description }}</p>
+              <a class="button button-outline-dark" href="{{ event.href or '#messaggio' }}">{{ siteData.events.ctaLabel }}</a>
             </article>
           {% endfor %}
         {% else %}
