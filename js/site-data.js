@@ -55,6 +55,7 @@ const DEFAULT_SITE_DATA = {
     ]
   },
   donation: {
+    enabled: false,
     title: "Anche un piccolo gesto può dare forza a una voce",
     text:
       "La donazione sostiene materiali informativi, eventi pubblici, iniziative di sensibilizzazione e attività della campagna.",

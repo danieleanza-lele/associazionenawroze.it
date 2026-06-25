@@ -60,6 +60,11 @@ const setFieldValue = (name, value) => {
   const field = adminForm?.elements.namedItem(name);
 
   if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+    if (field.type === "checkbox") {
+      field.checked = Boolean(value);
+      return;
+    }
+
     field.value = value;
   }
 };
@@ -87,6 +92,7 @@ const populateAdminForm = () => {
   setFieldValue("heratCtaHref", adminData.herat.ctaHref);
   setFieldValue("eventsIntro", adminData.events.intro);
   setFieldValue("eventsCtaLabel", adminData.events.ctaLabel);
+  setFieldValue("donationEnabled", adminData.donation.enabled);
   setFieldValue("donationTitle", adminData.donation.title);
   setFieldValue("donationText", adminData.donation.text);
   setFieldValue("donationAmounts", adminData.donation.amounts.join(", "));
@@ -161,6 +167,7 @@ if (adminForm) {
         items: collectEvents()
       },
       donation: {
+        enabled: adminForm.donationEnabled.checked,
         title: adminForm.donationTitle.value.trim(),
         text: adminForm.donationText.value.trim(),
         amounts: adminForm.donationAmounts.value

@@ -12,6 +12,7 @@ const currentYear = document.querySelector("[data-current-year]");
 const eventGrid = document.querySelector("[data-event-grid]");
 const heroTitle = document.querySelector("[data-hero-title]");
 const donationOptions = document.querySelector("[data-donation-options]");
+const donationSection = document.querySelector("[data-donation-section]");
 const backToTop = document.querySelector("[data-back-to-top]");
 
 const bindText = (selector, value) => {
@@ -159,9 +160,15 @@ const bindSiteData = () => {
   bindText("[data-herat-closing]", siteData.herat.closing);
   bindLink("[data-herat-cta]", siteData.herat.ctaText, siteData.herat.ctaHref);
   bindText("[data-events-intro]", siteData.events.intro);
-  bindText("[data-donation-title]", siteData.donation.title);
-  bindText("[data-donation-text]", siteData.donation.text);
-  bindText("[data-donate-button]", siteData.donation.buttonText);
+  if (donationSection) {
+    donationSection.hidden = !siteData.donation.enabled;
+  }
+
+  if (siteData.donation.enabled) {
+    bindText("[data-donation-title]", siteData.donation.title);
+    bindText("[data-donation-text]", siteData.donation.text);
+    bindText("[data-donate-button]", siteData.donation.buttonText);
+  }
   bindText("[data-contact-title]", siteData.contact.title);
   bindText("[data-contact-body]", siteData.contact.body);
   bindText("[data-contact-email]", siteData.contact.email);
@@ -179,7 +186,9 @@ const bindSiteData = () => {
 
   renderHeroTitle();
   renderEvents();
-  renderDonationOptions();
+  if (siteData.donation.enabled) {
+    renderDonationOptions();
+  }
 };
 
 bindSiteData();
@@ -217,7 +226,11 @@ if (menuToggle && navigation) {
 document.addEventListener("click", (event) => {
   const target = event.target;
 
-  if (!(target instanceof HTMLElement) || !target.classList.contains("donation-chip")) {
+  if (
+    !siteData.donation.enabled ||
+    !(target instanceof HTMLElement) ||
+    !target.classList.contains("donation-chip")
+  ) {
     return;
   }
 
@@ -232,7 +245,7 @@ document.addEventListener("click", (event) => {
   }
 });
 
-if (donateButton && donationNote) {
+if (siteData.donation.enabled && donateButton && donationNote) {
   donateButton.addEventListener("click", () => {
     const activeChip = document.querySelector(".donation-chip.is-active");
     const value = activeChip?.getAttribute("data-donation-value") || "Importo libero";
