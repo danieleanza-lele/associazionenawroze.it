@@ -1,0 +1,165 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: false
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+site_url: "https://associazionenawroze.it"
+display_url: "https://associazionenawroze.it"
+logo_url: "/assets/images/hero-afghan-woman.png"
+
+collections:
+  - name: "settings"
+    label: "Contenuti sito"
+    files:
+      - label: "Impostazioni sito"
+        name: "site"
+        file: "_data/siteData.source.json"
+        fields:
+          - label: "Sito"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "Brand header", name: "brand", widget: "string" }
+              - { label: "Titolo footer", name: "footerTitle", widget: "string" }
+              - { label: "Tagline footer", name: "footerTagline", widget: "string" }
+              - { label: "Page title", name: "pageTitle", widget: "string" }
+              - { label: "Meta description", name: "metaDescription", widget: "text" }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Righe titolo", name: "titleLines", widget: "list", field: { label: "Riga", name: "line", widget: "string" } }
+              - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+              - { label: "Testo", name: "copy", widget: "text" }
+              - { label: "CTA primaria testo", name: "primaryCtaText", widget: "string" }
+              - { label: "CTA primaria link", name: "primaryCtaHref", widget: "string" }
+              - { label: "CTA secondaria testo", name: "secondaryCtaText", widget: "string" }
+              - { label: "CTA secondaria link", name: "secondaryCtaHref", widget: "string" }
+          - label: "Problema"
+            name: "problem"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Testo", name: "body", widget: "text" }
+              - label: "Card"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Indice", name: "index", widget: "string" }
+                  - { label: "Titolo", name: "title", widget: "string" }
+                  - { label: "Testo", name: "body", widget: "text" }
+          - label: "Citazione"
+            name: "quote"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Testo", name: "text", widget: "text" }
+          - label: "Herat"
+            name: "herat"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - { label: "Titolo sorveglianza", name: "pressureTitle", widget: "string" }
+              - { label: "Testo sorveglianza", name: "pressureBody", widget: "text" }
+              - { label: "Titolo memoria", name: "mortezaTitle", widget: "string" }
+              - { label: "Testo memoria", name: "mortezaBody", widget: "text" }
+              - { label: "Chiusura", name: "closing", widget: "text" }
+              - { label: "CTA testo", name: "ctaText", widget: "string" }
+              - { label: "CTA link", name: "ctaHref", widget: "string" }
+          - label: "Campagna"
+            name: "campaign"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Testo", name: "body", widget: "text" }
+              - label: "Punti"
+                name: "points"
+                widget: "list"
+                fields:
+                  - { label: "Titolo", name: "title", widget: "string" }
+                  - { label: "Testo", name: "body", widget: "text" }
+          - label: "Eventi"
+            name: "events"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - { label: "Data card vuota", name: "emptyDate", widget: "string" }
+              - { label: "Titolo card vuota", name: "emptyTitle", widget: "string" }
+              - { label: "Luogo card vuota", name: "emptyLocation", widget: "string" }
+              - { label: "Testo card vuota", name: "emptyBody", widget: "text" }
+              - { label: "Testo bottone", name: "ctaLabel", widget: "string" }
+          - label: "Azioni"
+            name: "actions"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - label: "Elementi"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Titolo", name: "title", widget: "string" }
+                  - { label: "Testo", name: "body", widget: "text" }
+          - label: "Donazioni"
+            name: "donation"
+            widget: "object"
+            fields:
+              - { label: "Abilita donazioni", name: "enabled", widget: "boolean", default: false }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Testo", name: "text", widget: "text" }
+              - { label: "Importi", name: "amounts", widget: "list", field: { label: "Importo", name: "amount", widget: "string" } }
+              - { label: "Testo bottone", name: "buttonText", widget: "string" }
+          - label: "Contatti"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Testo", name: "body", widget: "text" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "Nome campagna", name: "campaignName", widget: "string" }
+              - { label: "Eyebrow form", name: "formEyebrow", widget: "string" }
+              - { label: "Titolo form", name: "formTitle", widget: "string" }
+              - { label: "Testo privacy checkbox", name: "privacyLabel", widget: "text" }
+              - { label: "Testo bottone invio", name: "submitText", widget: "string" }
+              - { label: "Testo stato form", name: "statusText", widget: "string" }
+          - label: "Pagina grazie"
+            name: "thanks"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Testo", name: "text", widget: "text" }
+              - { label: "Testo bottone", name: "buttonText", widget: "string" }
+              - { label: "Link bottone", name: "buttonHref", widget: "string" }
+
+  - name: "events"
+    label: "Eventi"
+    folder: "content/events"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data visibile", name: "display_date", widget: "string" }
+      - { label: "Luogo", name: "location", widget: "string" }
+      - { label: "Descrizione", name: "description", widget: "text" }
+      - { label: "Link bottone", name: "href", widget: "string", required: false, default: "#messaggio" }
+      - { label: "Ordine", name: "order", widget: "number", default: 10, value_type: "int" }
+      - { label: "Pubblicato", name: "published", widget: "boolean", default: true }
+      - { label: "Contenuto", name: "body", widget: "markdown", required: false }

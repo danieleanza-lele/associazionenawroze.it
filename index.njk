@@ -1,0 +1,298 @@
+---
+layout: layouts/base.njk
+includeMainScript: true
+permalink: /index.html
+---
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="Vai all'inizio della pagina">
+      <span class="brand-text">{{ siteData.site.brand }}</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+      aria-label="Apri il menu di navigazione"
+      data-menu-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="site-navigation" data-navigation>
+      <a href="#problema">Il problema</a>
+      <a href="#eventi">Eventi</a>
+      {% if siteData.donation.enabled %}
+        <a href="#donazione" data-donation-nav>Dona</a>
+      {% endif %}
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenuto">
+  <section class="hero-section" id="top">
+    <div class="hero-media">
+      <img
+        src="/assets/images/hero-afghan-woman.png"
+        alt="Donna afghana in controluce che scrive su un quaderno vicino a una finestra"
+      >
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">{{ siteData.hero.eyebrow }}</p>
+      <h1 class="hero-flag-title">
+        {% for line in siteData.hero.titleLines %}
+          <span class="{% if loop.index0 == 0 %}flag-black{% elif loop.index0 == 1 %}flag-red{% else %}flag-green{% endif %}">{{ line }}</span>{% if not loop.last %}<br>{% endif %}
+        {% endfor %}
+      </h1>
+      <p class="hero-subtitle">{{ siteData.hero.subtitle }}</p>
+      <p class="hero-copy">{{ siteData.hero.copy }}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ siteData.hero.primaryCtaHref }}">{{ siteData.hero.primaryCtaText }}</a>
+        <a class="button button-secondary" href="{{ siteData.hero.secondaryCtaHref }}">{{ siteData.hero.secondaryCtaText }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-problem" id="problema">
+    <div class="container section-grid">
+      <div class="section-intro">
+        <p class="eyebrow">{{ siteData.problem.eyebrow }}</p>
+        <h2>{{ siteData.problem.title }}</h2>
+        <p>{{ siteData.problem.body }}</p>
+      </div>
+      <div class="impact-grid">
+        {% for card in siteData.problem.cards %}
+          <article class="impact-card">
+            <p class="impact-index">{{ card.index }}</p>
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.body }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-quote" aria-labelledby="quote-title">
+    <div class="container quote-shell">
+      <p class="eyebrow" id="quote-title">{{ siteData.quote.eyebrow }}</p>
+      <blockquote>{{ siteData.quote.text }}</blockquote>
+    </div>
+  </section>
+
+  <section class="section section-herat" id="herat">
+    <div class="container">
+      <div class="section-heading herat-heading">
+        <p class="eyebrow">{{ siteData.herat.eyebrow }}</p>
+        <h2>{{ siteData.herat.title }}</h2>
+        <p>{{ siteData.herat.intro }}</p>
+      </div>
+
+      <div class="herat-grid">
+        <article class="herat-card herat-card-pressure">
+          <p class="eyebrow">Sorveglianza</p>
+          <h3>{{ siteData.herat.pressureTitle }}</h3>
+          <p>{{ siteData.herat.pressureBody }}</p>
+        </article>
+
+        <article class="herat-card herat-card-morteza">
+          <p class="eyebrow">Memoria</p>
+          <h3>{{ siteData.herat.mortezaTitle }}</h3>
+          <p>{{ siteData.herat.mortezaBody }}</p>
+        </article>
+      </div>
+
+      <div class="herat-closing">
+        <p>{{ siteData.herat.closing }}</p>
+        <a class="button button-primary" href="{{ siteData.herat.ctaHref }}">{{ siteData.herat.ctaText }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-campaign" id="campagna">
+    <div class="container campaign-grid">
+      <figure class="campaign-figure">
+        <img
+          src="/assets/images/hero-afghan-woman.png"
+          alt="Primo piano di una donna afghana in una stanza illuminata da luce calda"
+        >
+      </figure>
+      <div class="campaign-copy">
+        <p class="eyebrow">{{ siteData.campaign.eyebrow }}</p>
+        <h2>{{ siteData.campaign.title }}</h2>
+        <p>{{ siteData.campaign.body }}</p>
+        <div class="campaign-points">
+          {% for point in siteData.campaign.points %}
+            <div>
+              <h3>{{ point.title }}</h3>
+              <p>{{ point.body }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-events" id="eventi">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">{{ siteData.events.eyebrow }}</p>
+        <h2>{{ siteData.events.title }}</h2>
+        <p>{{ siteData.events.intro }}</p>
+      </div>
+
+      <div class="event-grid">
+        {% if collections.publishedEvents.length %}
+          {% for event in collections.publishedEvents %}
+            <article class="event-card">
+              <p class="event-date">{{ event.data.display_date }}</p>
+              <h3>{{ event.data.title }}</h3>
+              <p class="event-location">{{ event.data.location }}</p>
+              <p>{{ event.data.description }}</p>
+              <a class="button button-outline-dark" href="{{ event.data.href or '#messaggio' }}">{{ siteData.events.ctaLabel }}</a>
+            </article>
+          {% endfor %}
+        {% else %}
+          <article class="event-card">
+            <p class="event-date">{{ siteData.events.emptyDate }}</p>
+            <h3>{{ siteData.events.emptyTitle }}</h3>
+            <p class="event-location">{{ siteData.events.emptyLocation }}</p>
+            <p>{{ siteData.events.emptyBody }}</p>
+          </article>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-actions" id="azioni">
+    <div class="container">
+      <div class="section-heading section-heading-center">
+        <p class="eyebrow">{{ siteData.actions.eyebrow }}</p>
+        <h2>{{ siteData.actions.title }}</h2>
+      </div>
+
+      <div class="action-grid">
+        {% for item in siteData.actions.items %}
+          <article class="action-card">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.body }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% if siteData.donation.enabled %}
+    <section class="section section-donation" id="donazione" data-donation-section>
+      <div class="container donation-shell">
+        <div class="section-heading section-heading-center">
+          <p class="eyebrow">{{ siteData.donation.eyebrow }}</p>
+          <h2>{{ siteData.donation.title }}</h2>
+          <p>{{ siteData.donation.text }}</p>
+        </div>
+
+        <div class="donation-options" data-donation-options role="group" aria-label="Importi suggeriti per la donazione">
+          {% for amount in siteData.donation.amounts %}
+            <button
+              class="donation-chip{% if loop.first %} is-active{% endif %}"
+              type="button"
+              data-donation-value="{{ amount }}"
+            >{{ amount }}</button>
+          {% endfor %}
+        </div>
+
+        <div class="donation-cta">
+          <button class="button button-primary" type="button" data-donate-button>{{ siteData.donation.buttonText }}</button>
+          <p class="donation-note" data-donation-note>Importo selezionato: {{ siteData.donation.amounts[0] or "Importo libero" }}.</p>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="section section-contact" id="contatti">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow">{{ siteData.contact.eyebrow }}</p>
+        <h2>{{ siteData.contact.title }}</h2>
+        <p>{{ siteData.contact.body }}</p>
+        <ul class="contact-list">
+          <li><span>Email</span> <a href="mailto:{{ siteData.contact.email }}">{{ siteData.contact.email }}</a></li>
+          <li><span>Instagram</span> <span>{{ siteData.contact.instagram }}</span></li>
+          <li><span>Campagna</span> <span>{{ siteData.contact.campaignName }}</span></li>
+        </ul>
+      </div>
+
+      <div class="form-shell" id="messaggio">
+        <p class="eyebrow">{{ siteData.contact.formEyebrow }}</p>
+        <h2>{{ siteData.contact.formTitle }}</h2>
+        <form
+          class="contact-form"
+          name="contatto-campagna"
+          method="post"
+          action="/grazie.html"
+          data-netlify="true"
+          netlify
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contatto-campagna">
+          <p class="form-hidden">
+            <label>Non compilare questo campo se sei umano <input name="bot-field" type="text"></label>
+          </p>
+          <div class="form-row">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="messaggio-testo">Messaggio</label>
+            <textarea id="messaggio-testo" name="messaggio" rows="6" required></textarea>
+          </div>
+
+          <div class="field field-checkbox">
+            <input id="privacy-consenso" name="privacy" type="checkbox" required>
+            <label for="privacy-consenso">{{ siteData.contact.privacyLabel }}</label>
+          </div>
+
+          <button class="button button-primary button-full" type="submit">{{ siteData.contact.submitText }}</button>
+          <p class="form-status" aria-live="polite">{{ siteData.contact.statusText }}</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="footer-title">{{ siteData.site.footerTitle }}</p>
+      <p class="footer-copy">{{ siteData.site.footerTagline }}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Link del footer">
+      <a href="#contatti">Contatti</a>
+      <a href="#eventi">Eventi</a>
+      {% if siteData.donation.enabled %}
+        <a href="#donazione">Dona</a>
+      {% endif %}
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; <span data-current-year></span> {{ siteData.site.footerTitle }}. Tutti i diritti riservati.</p>
+  </div>
+</footer>
+
+<a class="back-to-top" href="#top" aria-label="Torna all'inizio della pagina" data-back-to-top>
+  <span aria-hidden="true">↑</span>
+</a>
