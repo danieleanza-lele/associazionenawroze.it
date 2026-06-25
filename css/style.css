@@ -901,6 +901,38 @@ textarea:focus-visible {
   color: #fff6eb;
 }
 
+.thanks-body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  color: #fff6eb;
+  background:
+    linear-gradient(180deg, rgba(18, 16, 15, 0.98), rgba(28, 24, 22, 0.98)),
+    radial-gradient(circle at top right, rgba(194, 47, 40, 0.16), transparent 22rem),
+    radial-gradient(circle at bottom left, rgba(42, 160, 94, 0.12), transparent 20rem);
+}
+
+.thanks-main {
+  width: min(100%, 42rem);
+}
+
+.thanks-card {
+  padding: clamp(2rem, 5vw, 3rem);
+  border: 1px solid rgba(255, 248, 240, 0.12);
+  background: rgba(255, 248, 240, 0.04);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.2);
+}
+
+.thanks-card h1 {
+  margin-bottom: 1rem;
+}
+
+.thanks-card p:not(.eyebrow) {
+  color: rgba(255, 246, 235, 0.8);
+  margin-bottom: 1.5rem;
+}
+
 .admin-main {
   padding-top: calc(var(--header-height) + 2.5rem);
   padding-bottom: 4rem;
