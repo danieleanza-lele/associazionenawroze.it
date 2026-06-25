@@ -6,8 +6,6 @@ const navigation = document.querySelector("[data-navigation]");
 const navLinks = navigation ? Array.from(navigation.querySelectorAll("a")) : [];
 const donationNote = document.querySelector("[data-donation-note]");
 const donateButton = document.querySelector("[data-donate-button]");
-const contactForm = document.querySelector("[data-contact-form]");
-const formStatus = document.querySelector("[data-form-status]");
 const currentYear = document.querySelector("[data-current-year]");
 const eventGrid = document.querySelector("[data-event-grid]");
 const heroTitle = document.querySelector("[data-hero-title]");
@@ -250,14 +248,6 @@ if (siteData.donation.enabled && donateButton && donationNote) {
     const activeChip = document.querySelector(".donation-chip.is-active");
     const value = activeChip?.getAttribute("data-donation-value") || "Importo libero";
     donationNote.textContent = `Importo selezionato: ${value}. Integrazione pagamento da collegare.`;
-  });
-}
-
-if (contactForm && formStatus) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    formStatus.textContent =
-      "Form statico pronto per Netlify Forms, Formspree, EmailJS o backend custom.";
   });
 }
 

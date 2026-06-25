@@ -85,19 +85,21 @@ Campi gestiti:
 
 ### Form messaggio
 
-Il markup del form è in [index.html](/C:/dev/afghanistan/index.html) e il comportamento statico corrente è in [js/main.js](/C:/dev/afghanistan/js/main.js).
+Il markup del form è in [index.html](/C:/dev/afghanistan/index.html). Il form è predisposto per `Netlify Forms`.
 
 Nel codice è presente il commento:
 
 ```html
-<!-- TODO: collegare il form a Netlify Forms, Formspree, EmailJS o backend custom -->
+<!-- TODO: configurare su Netlify la notifica email del form verso l'indirizzo desiderato -->
 ```
 
-Per collegarlo in futuro:
+Per attivarlo su Netlify:
 
-- Netlify Forms: aggiungi gli attributi richiesti direttamente al tag `<form>`.
-- Formspree: imposta `action` con l`endpoint del form.
-- EmailJS o backend custom: sostituisci l`handler JS attuale in `js/main.js`.
+1. pubblica il sito su Netlify;
+2. invia almeno una volta il form dal sito online, così Netlify rileva la form `contatto-campagna`;
+3. in Netlify vai su `Forms`;
+4. apri la form rilevata;
+5. aggiungi una notifica email verso l'indirizzo desiderato.
 
 ### Donazioni
 

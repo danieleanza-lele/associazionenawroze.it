@@ -832,6 +832,14 @@ textarea:focus-visible {
   font-size: 0.88rem;
 }
 
+.form-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .site-footer {
   color: #efe4d4;
   background: #0c0b0a;

@@ -286,8 +286,21 @@
         <div class="form-shell" id="messaggio">
           <p class="eyebrow">Lascia un messaggio</p>
           <h2>Scrivici</h2>
-          <!-- TODO: collegare il form a Netlify Forms, Formspree, EmailJS o backend custom -->
-          <form class="contact-form" action="#" method="post" data-contact-form>
+          <!-- TODO: configurare su Netlify la notifica email del form verso l'indirizzo desiderato -->
+          <form
+            class="contact-form"
+            name="contatto-campagna"
+            method="post"
+            action="/?form=successo#messaggio"
+            data-netlify="true"
+            netlify
+            netlify-honeypot="bot-field"
+            data-contact-form
+          >
+            <input type="hidden" name="form-name" value="contatto-campagna">
+            <p class="form-hidden">
+              <label>Non compilare questo campo se sei umano <input name="bot-field" type="text"></label>
+            </p>
             <div class="form-row">
               <div class="field">
                 <label for="nome">Nome</label>
@@ -313,7 +326,9 @@
             </div>
 
             <button class="button button-primary button-full" type="submit">Invia messaggio</button>
-            <p class="form-status" data-form-status aria-live="polite"></p>
+            <p class="form-status" data-form-status aria-live="polite">
+              Il messaggio verrà inviato tramite il servizio form del sito una volta pubblicato su Netlify.
+            </p>
           </form>
         </div>
       </div>
