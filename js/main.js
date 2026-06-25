@@ -11,6 +11,8 @@ const eventGrid = document.querySelector("[data-event-grid]");
 const heroTitle = document.querySelector("[data-hero-title]");
 const donationOptions = document.querySelector("[data-donation-options]");
 const donationSection = document.querySelector("[data-donation-section]");
+const donationNavLink = document.querySelector("[data-donation-nav]");
+const donationFooterLink = document.querySelector("[data-donation-footer-link]");
 const backToTop = document.querySelector("[data-back-to-top]");
 
 const bindText = (selector, value) => {
@@ -160,6 +162,14 @@ const bindSiteData = () => {
   bindText("[data-events-intro]", siteData.events.intro);
   if (donationSection) {
     donationSection.hidden = !siteData.donation.enabled;
+  }
+
+  if (donationNavLink) {
+    donationNavLink.hidden = !siteData.donation.enabled;
+  }
+
+  if (donationFooterLink) {
+    donationFooterLink.hidden = !siteData.donation.enabled;
   }
 
   if (siteData.donation.enabled) {
