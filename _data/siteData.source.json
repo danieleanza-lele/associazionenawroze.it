@@ -8,8 +8,12 @@
   },
   "hero": {
     "eyebrow": "Campagna italiana per i diritti delle donne afghane",
-    "titleLines": ["Istruzione.", "Lavoro.", "Libertà."],
-    "subtitle": "Campagna italiana per i diritti e la dignità delle donne afghane.",
+    "titleLines": [
+      "Istruzione.",
+      "Lavoro.",
+      "Libertà."
+    ],
+    "subtitle": "Campagna italiana per i diritti e la dignità delle donne afghane!",
     "copy": "Per molte donne afghane, studiare, lavorare e scegliere il proprio futuro è diventato un atto di resistenza.",
     "primaryCtaText": "Partecipa alla campagna",
     "primaryCtaHref": "#azioni",
@@ -123,7 +127,12 @@
     "eyebrow": "Dona",
     "title": "Anche un piccolo gesto può dare forza a una voce",
     "text": "La donazione sostiene materiali informativi, eventi pubblici, iniziative di sensibilizzazione e attività della campagna.",
-    "amounts": ["5 €", "10 €", "20 €", "Importo libero"],
+    "amounts": [
+      "5 €",
+      "10 €",
+      "20 €",
+      "Importo libero"
+    ],
     "buttonText": "Dona ora"
   },
   "contact": {
