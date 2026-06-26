@@ -90,6 +90,10 @@ const createEventEditor = (event = {}) => {
         <button class="button button-outline-dark" type="button" data-remove-event>Rimuovi evento</button>
       </div>
     </div>
+    <div class="field field-checkbox">
+      <input type="checkbox" name="event-is-past" ${event.isPast ? "checked" : ""}>
+      <label>Evento passato</label>
+    </div>
   `;
 
   item.querySelector("[data-remove-event]")?.addEventListener("click", () => {
@@ -144,6 +148,8 @@ const populateForm = (data) => {
   setFieldValue("heratCtaText", data.herat.ctaText);
   setFieldValue("heratCtaHref", data.herat.ctaHref);
   setFieldValue("eventsIntro", data.events.intro);
+  setFieldValue("eventsUpcomingTitle", data.events.upcomingTitle);
+  setFieldValue("eventsPastTitle", data.events.pastTitle);
   setFieldValue("eventsCtaLabel", data.events.ctaLabel);
   setFieldValue("donationEnabled", data.donation.enabled);
   setFieldValue("donationTitle", data.donation.title);
@@ -169,7 +175,8 @@ const collectEvents = () =>
       title: item.querySelector('[name="event-title"]')?.value.trim() || "",
       location: item.querySelector('[name="event-location"]')?.value.trim() || "",
       description: item.querySelector('[name="event-description"]')?.value.trim() || "",
-      href: item.querySelector('[name="event-href"]')?.value.trim() || "#messaggio"
+      href: item.querySelector('[name="event-href"]')?.value.trim() || "",
+      isPast: item.querySelector('[name="event-is-past"]')?.checked || false
     }))
     .filter((event) => event.title);
 
@@ -200,6 +207,8 @@ const buildPayload = () => {
   nextData.herat.ctaText = adminForm.heratCtaText.value.trim();
   nextData.herat.ctaHref = adminForm.heratCtaHref.value.trim();
   nextData.events.intro = adminForm.eventsIntro.value.trim();
+  nextData.events.upcomingTitle = adminForm.eventsUpcomingTitle.value.trim();
+  nextData.events.pastTitle = adminForm.eventsPastTitle.value.trim();
   nextData.events.ctaLabel = adminForm.eventsCtaLabel.value.trim();
   nextData.events.items = collectEvents();
   nextData.donation.enabled = adminForm.donationEnabled.checked;

@@ -616,6 +616,16 @@ textarea:focus-visible {
   gap: 1.25rem;
 }
 
+.events-group + .events-group {
+  margin-top: 2.5rem;
+}
+
+.events-subtitle {
+  margin-bottom: 1.2rem;
+  color: #fff6eb;
+  font-size: 1.4rem;
+}
+
 .event-card {
   padding: 2rem;
   background: rgba(255, 248, 240, 0.03);
@@ -637,6 +647,10 @@ textarea:focus-visible {
 .event-card .button {
   margin-top: 1.5rem;
   align-self: flex-start;
+}
+
+.event-card-past {
+  opacity: 0.84;
 }
 
 .section-actions {

@@ -81,6 +81,8 @@
     "eyebrow": "Eventi, incontri e manifestazioni",
     "title": "Presenza civile, voce collettiva.",
     "intro": "Nuovi appuntamenti saranno annunciati presto.",
+    "upcomingTitle": "Prossimi eventi",
+    "pastTitle": "Eventi passati",
     "emptyDate": "Nessun evento pubblicato",
     "emptyTitle": "Nuovi appuntamenti in preparazione",
     "emptyLocation": "Aggiorna questa sezione dal CMS",
@@ -92,7 +94,8 @@
         "title": "Incontro pubblico in lingua farsi",
         "location": "Polocivico Esquilino, via Galilei 57, ore 19:30",
         "description": "Incontro pubblico in lingua farsi dedicato alla restituzione e al confronto sulla manifestazione del 21 giugno a Roma.",
-        "href": "#messaggio"
+        "href": "#messaggio",
+        "isPast": false
       }
     ]
   },

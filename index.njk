@@ -148,15 +148,19 @@ permalink: /index.html
         <p>{{ siteData.events.intro }}</p>
       </div>
 
-      <div class="event-grid">
-        {% if siteData.events.items and siteData.events.items.length %}
-          {% for event in siteData.events.items %}
+      <div class="events-group">
+        <h3 class="events-subtitle">{{ siteData.events.upcomingTitle }}</h3>
+        <div class="event-grid">
+        {% if siteData.events.upcomingItems.length %}
+          {% for event in siteData.events.upcomingItems %}
             <article class="event-card">
               <p class="event-date">{{ event.date }}</p>
               <h3>{{ event.title }}</h3>
               <p class="event-location">{{ event.location }}</p>
               <p>{{ event.description }}</p>
-              <a class="button button-outline-dark" href="{{ event.href or '#messaggio' }}">{{ siteData.events.ctaLabel }}</a>
+              {% if event.href %}
+                <a class="button button-outline-dark" href="{{ event.href }}">{{ siteData.events.ctaLabel }}</a>
+              {% endif %}
             </article>
           {% endfor %}
         {% else %}
@@ -167,7 +171,27 @@ permalink: /index.html
             <p>{{ siteData.events.emptyBody }}</p>
           </article>
         {% endif %}
+        </div>
       </div>
+
+      {% if siteData.events.pastItems.length %}
+        <div class="events-group events-group-past">
+          <h3 class="events-subtitle">{{ siteData.events.pastTitle }}</h3>
+          <div class="event-grid">
+            {% for event in siteData.events.pastItems %}
+              <article class="event-card event-card-past">
+                <p class="event-date">{{ event.date }}</p>
+                <h3>{{ event.title }}</h3>
+                <p class="event-location">{{ event.location }}</p>
+                <p>{{ event.description }}</p>
+                {% if event.href %}
+                  <a class="button button-outline-dark" href="{{ event.href }}">Rivedi</a>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
     </div>
   </section>
 
