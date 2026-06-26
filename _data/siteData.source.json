@@ -94,8 +94,16 @@
         "title": "Incontro pubblico in lingua farsi",
         "location": "Polocivico Esquilino, via Galilei 57, ore 19:30",
         "description": "Incontro pubblico in lingua farsi dedicato alla restituzione e al confronto sulla manifestazione del 21 giugno a Roma.",
-        "href": "https://youtu.be/151Naz7t_tM",
+        "href": "",
         "isPast": false
+      },
+      {
+        "date": "21/06/2026",
+        "title": "DONNE DI HERAT",
+        "location": "",
+        "description": "",
+        "href": "https://youtu.be/151Naz7t_tM",
+        "isPast": true
       }
     ]
   },
