@@ -180,7 +180,10 @@ permalink: /index.html
           <div class="event-grid">
             {% for event in siteData.events.pastItems %}
               <article class="event-card event-card-past">
-                <p class="event-date">{{ event.date }}</p>
+                <p class="event-date">
+                  {{ event.date }}
+                  <span class="event-badge">Passato</span>
+                </p>
                 <h3>{{ event.title }}</h3>
                 <p class="event-location">{{ event.location }}</p>
                 <p>{{ event.description }}</p>

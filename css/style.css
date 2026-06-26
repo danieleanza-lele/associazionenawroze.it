@@ -444,6 +444,18 @@ textarea:focus-visible {
   text-transform: uppercase;
 }
 
+.event-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.7rem;
+  padding: 0.22rem 0.55rem;
+  border: 1px solid rgba(255, 248, 240, 0.26);
+  border-radius: 999px;
+  color: rgba(255, 246, 235, 0.86);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
 .impact-card h3,
 .event-card h3,
 .action-card h3,
@@ -651,6 +663,8 @@ textarea:focus-visible {
 
 .event-card-past {
   opacity: 0.84;
+  padding: 1.6rem;
+  background: rgba(255, 248, 240, 0.02);
 }
 
 .section-actions {
